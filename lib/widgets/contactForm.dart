@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:mlvolt_new_website/pages/thankYouPage.dart';
+import 'package:mlvolt_new_website/widgets/general%20widgets/customButton.dart';
 
 class CustomContactForm extends StatefulWidget {
   const CustomContactForm({super.key});
@@ -19,7 +18,29 @@ class _CustomContactFormState extends State<CustomContactForm> {
 
   final TextEditingController queryController = TextEditingController();
 
- // final databaseReference = FirebaseDatabase.instance.reference();
+  // final databaseReference = FirebaseDatabase.instance.reference();
+
+  Future<void> sendQuery() async {
+    CollectionReference users = FirebaseFirestore.instance.collection('query');
+
+    await users
+        .doc(emailController.text)
+        .set({
+          'name': nameController.text,
+          'email': emailController.text,
+          'contact': contactController.text,
+          'query': queryController.text
+        })
+        .then((value) {
+          Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ThankYouPage()),
+                      );
+        })
+        .catchError((error) => print("Problem: $error"));
+  }
+
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
@@ -38,10 +59,11 @@ class _CustomContactFormState extends State<CustomContactForm> {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16, bottom: 8, top: 20),
+              padding: const EdgeInsets.only(
+                  left: 16, right: 16, bottom: 8, top: 20),
               child: TextField(
                 controller: nameController,
                 style: const TextStyle(color: Color(0xffFF6006)),
@@ -66,7 +88,8 @@ class _CustomContactFormState extends State<CustomContactForm> {
                 ),
               )),
           Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16, bottom: 8, top: 20),
+              padding: const EdgeInsets.only(
+                  left: 16, right: 16, bottom: 8, top: 20),
               child: TextField(
                 controller: emailController,
                 style: const TextStyle(color: Color(0xffFF6006)),
@@ -91,7 +114,8 @@ class _CustomContactFormState extends State<CustomContactForm> {
                 ),
               )),
           Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16, bottom: 8, top: 20),
+              padding: const EdgeInsets.only(
+                  left: 16, right: 16, bottom: 8, top: 20),
               child: TextField(
                 controller: contactController,
                 style: const TextStyle(color: Color(0xffFF6006)),
@@ -116,7 +140,8 @@ class _CustomContactFormState extends State<CustomContactForm> {
                 ),
               )),
           Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16, bottom: 8, top: 20),
+              padding: const EdgeInsets.only(
+                  left: 16, right: 16, bottom: 8, top: 20),
               child: TextField(
                 controller: queryController,
                 maxLines: 5, // Adjust the number of lines
@@ -143,21 +168,33 @@ class _CustomContactFormState extends State<CustomContactForm> {
                 ),
               )),
           Padding(
-            padding: const EdgeInsets.only(left: 16, top: 20),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xffFF6006)),
-              onPressed: () {},
-              child: const Padding(
-                padding:
-                    EdgeInsets.only(top: 8, bottom: 8, left: 15, right: 15),
-                child: Text(
-                  "Submit",
-                  style: TextStyle(
-                      color: Colors.white, fontSize: 16, fontFamily: "medium"),
-                ),
-              ),
+            padding: const EdgeInsets.only(right: 16, top: 20),
+            child: CustomButton(
+              onPressed: () async {
+                await sendQuery();
+
+              },
+              buttonText: "   Submit   ",
+              outlineColor: Color(0xffFF6006),
+              textColor: Colors.white,
+              hoverTextColor: Colors.black,
             ),
+            // child: ElevatedButton(
+            //   style: ElevatedButton.styleFrom(
+            //       backgroundColor: const Color(0xffFF6006)),
+            //   onPressed: () async{
+            //     await sendQuery();
+            //   },
+            //   child: const Padding(
+            //     padding:
+            //         EdgeInsets.only(top: 8, bottom: 8, left: 15, right: 15),
+            //     child: Text(
+            //       "Submit",
+            //       style: TextStyle(
+            //           color: Colors.white, fontSize: 16, fontFamily: "medium"),
+            //     ),
+            //   ),
+            // ),
           ),
         ],
       ),

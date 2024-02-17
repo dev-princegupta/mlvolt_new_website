@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class OurStory extends StatelessWidget {
   const OurStory({super.key});
@@ -17,15 +15,15 @@ class OurStory extends StatelessWidget {
               SizedBox(
                 width: 744,
                 height: 579,
-                child: Image.asset("images/gridImage.png"),
+                child: Image.asset("assets/images/gridImage.png"),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 61,
               ),
-              Column(
+              const Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
                     "Our Story",
                     style: TextStyle(
@@ -58,16 +56,16 @@ class OurStory extends StatelessWidget {
                 SizedBox(
                   width: deviceWidth,
                   height: 400,
-                  child: Image.asset("images/gridImage.png"),
+                  child: Image.asset("assets/images/gridImage.png"),
                 ),
-                SizedBox(
+                const SizedBox(
                 height: 20,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Our Story",
                       style: TextStyle(
                         fontFamily: "bold",
@@ -75,12 +73,12 @@ class OurStory extends StatelessWidget {
                         fontSize: 30,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 28,
                     ),
                     SizedBox(
                       width: deviceWidth - 20,
-                      child: Text(
+                      child: const Text(
                         "Fuelled by relentless passion, we transform ideas into hardware and software products, unleashing innovation through dedicated design and engineering.",
                         style: TextStyle(
                             fontFamily: "regular",

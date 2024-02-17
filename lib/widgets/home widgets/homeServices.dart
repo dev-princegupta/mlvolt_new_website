@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:mlvolt_new_website/pages/servicesPage.dart';
+import 'package:mlvolt_new_website/widgets/general%20widgets/customButton.dart';
+
+import '../general widgets/customText.dart';
 
 class HomeServices extends StatelessWidget {
   const HomeServices({super.key});
@@ -48,33 +50,30 @@ class HomeServices extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Column(
+                      const Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            "CAD Design",
-                            style: TextStyle(
-                                fontFamily: 'bold',
-                                fontSize: 70,
-                                color: Colors.white,
-                                letterSpacing: 8),
+                        children: [
+                          CustomText(
+                            text: "CAD Design",
+                            normalFontColor: Colors.white,
+                            howerFontColor: Color(0xffFF6006),
+                            fontFamily: "bold",
+                            fontSize: 80,
                           ),
-                          Text(
-                            "PCB Design",
-                            style: TextStyle(
-                                fontFamily: 'bold',
-                                fontSize: 70,
-                                color: Colors.white,
-                                letterSpacing: 8),
+                          CustomText(
+                            text: "PCB Design",
+                            normalFontColor: Colors.white,
+                            howerFontColor: Color(0xffFF6006),
+                            fontFamily: "bold",
+                            fontSize: 80,
                           ),
-                          Text(
-                            "UI,Ux Design",
-                            style: TextStyle(
-                                fontFamily: 'bold',
-                                fontSize: 70,
-                                color: Colors.white,
-                                letterSpacing: 8),
+                          CustomText(
+                            text: "UI, UX Design",
+                            normalFontColor: Colors.white,
+                            howerFontColor: Color(0xffFF6006),
+                            fontFamily: "bold",
+                            fontSize: 80,
                           ),
                         ],
                       ),
@@ -99,33 +98,30 @@ class HomeServices extends StatelessWidget {
                               Container(
                                 width: 5,
                                 height: 100,
-                                color: Color(0xffFF6006),
+                                color: const Color(0xffFF6006),
                               ),
                               const SizedBox(
                                 width: 100,
                               )
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
-                          OutlinedButton(
-                            onPressed: () {},
-                            style: OutlinedButton.styleFrom(
-                                side: const BorderSide(
-                                    color: Color(0xffFF6006), width: 2)),
-                            child: const Padding(
-                              padding: EdgeInsets.all(15),
-                              child: Text(
-                                "View all services",
-                                style: TextStyle(
-                                  fontFamily: "light",
-                                  color: Color(0xff7A7A7A),
-                                  fontSize: 22,
-                                ),
-                              ),
-                            ),
+                          CustomButton(
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ServicesPage()),
+                            );
+                            },
+                            buttonText: "View All Services",
+                            outlineColor: Color(0xffFF6006),
+                            textColor: Colors.white,
+                            hoverTextColor: Colors.black,
                           )
+                         
                         ],
                       )
                     ],
@@ -140,7 +136,7 @@ class HomeServices extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: deviceWidth - 50,
-                    child: Text(
+                    child: const Text(
                       "Our Services",
                       style: TextStyle(
                           fontFamily: 'bold',
@@ -167,34 +163,34 @@ class HomeServices extends StatelessWidget {
                       fontFamily: 'thin', fontSize: 14, color: Colors.white),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text(
+              const Text(
                 "CAD Design",
+                style: TextStyle(
+                    fontFamily: 'bold',
+                    fontSize: 50,
+                    color: Colors.amber,
+                    letterSpacing: 4),
+              ),
+              const Text(
+                "PCB Design",
                 style: TextStyle(
                     fontFamily: 'bold',
                     fontSize: 50,
                     color: Colors.white,
                     letterSpacing: 4),
               ),
-              Text(
-                "PCB Design",
-                style: TextStyle(
-                    fontFamily: 'bold',
-                    fontSize: 40,
-                    color: Colors.white,
-                    letterSpacing: 4),
-              ),
-              Text(
+              const Text(
                 "UI,Ux Design",
                 style: TextStyle(
                     fontFamily: 'bold',
-                    fontSize: 40,
+                    fontSize: 50,
                     color: Colors.white,
                     letterSpacing: 4),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               OutlinedButton(

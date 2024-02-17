@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mlvolt_new_website/aboutPage.dart';
-import 'package:mlvolt_new_website/contactPage.dart';
-import 'package:mlvolt_new_website/homePage.dart';
-import 'package:mlvolt_new_website/productsPage.dart';
+import 'package:mlvolt_new_website/pages/aboutPage.dart';
+import 'package:mlvolt_new_website/pages/contactPage.dart';
+import 'package:mlvolt_new_website/pages/homePage.dart';
+import 'package:mlvolt_new_website/pages/productsPage.dart';
 
-import '../../../servicesPage.dart';
+import '../../pages/servicesPage.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -12,23 +12,25 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: const Color(0xff2E2D2D),
+      backgroundColor: const Color(0xff000000),
+            shape: const Border(right: BorderSide(color: Colors.transparent, width: 0.0)),
+
       child: ListView(
         children: [
-          DrawerHeader(
+          const DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Color(0xff151515),
             ),
             child: 
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  width: 100,
-                  height: 100,
-                  child: Image.asset("Images/mlvoltlogo.jpg"),
-                ),
+                // SizedBox(
+                //   width: 100,
+                //   height: 100,
+                //   child: Image.asset("assets/images/mlvoltlogo.jpg"),
+                // ),
 
               
               ],
@@ -80,7 +82,7 @@ class DrawerItem extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
 
-  const DrawerItem({required this.text, required this.onTap});
+  const DrawerItem({super.key, required this.text, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

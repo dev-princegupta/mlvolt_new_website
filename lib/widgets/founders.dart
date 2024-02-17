@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class Founders extends StatelessWidget {
   const Founders({super.key});
@@ -17,11 +15,11 @@ class Founders extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Person(imgAdd: "images/prince.jpg", name: "Prince Gupta"),
+            const Person(imgAdd: "assets/images/prince.jpg", name: "Prince Gupta"),
             SizedBox(
               width: deviceWidth>600? 40: 12,
             ),
-            Person(imgAdd: "images/atulsir.jpg", name: "Atul Maurya"),
+            const Person(imgAdd: "assets/images/atulsir.jpg", name: "Atul Maurya"),
           ],
         ),
         SizedBox(
@@ -31,19 +29,19 @@ class Founders extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Person(imgAdd: "images/prince.jpg", name: "Prince Gupta"),
+            const Person(imgAdd: "assets/images/prince.jpg", name: "Prince Gupta"),
             SizedBox(
               width: deviceWidth>600? 40: 12,
             ),
-            Person(imgAdd: "images/atulsir.jpg", name: "Atul Maurya"),
+            const Person(imgAdd: "assets/images/atulsir.jpg", name: "Atul Maurya"),
             SizedBox(
               width: deviceWidth>600? 40: 12,
             ),
-            Person(imgAdd: "images/atulsir.jpg", name: "Atul Maurya"),
+            const Person(imgAdd: "assets/images/atulsir.jpg", name: "Atul Maurya"),
             SizedBox(
               width: deviceWidth>600? 40: 12,
             ),
-            Person(imgAdd: "images/atulsir.jpg", name: "Atul Maurya"),
+            const Person(imgAdd: "assets/images/atulsir.jpg", name: "Atul Maurya"),
             SizedBox(
               width: deviceWidth>600? 40: 12,
             ),
@@ -56,19 +54,19 @@ class Founders extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Person(imgAdd: "images/prince.jpg", name: "Prince Gupta"),
+            const Person(imgAdd: "assets/images/prince.jpg", name: "Prince Gupta"),
             SizedBox(
               width: deviceWidth>600? 40: 12,
             ),
-            Person(imgAdd: "images/atulsir.jpg", name: "Atul Maurya"),
+            const Person(imgAdd: "assets/images/atulsir.jpg", name: "Atul Maurya"),
             SizedBox(
               width: deviceWidth>600? 40: 12,
             ),
-            Person(imgAdd: "images/atulsir.jpg", name: "Atul Maurya"),
+            const Person(imgAdd: "assets/images/atulsir.jpg", name: "Atul Maurya"),
             SizedBox(
               width: deviceWidth>600? 40: 12,
             ),
-            Person(imgAdd: "images/atulsir.jpg", name: "Atul Maurya"),
+            const Person(imgAdd: "assets/images/atulsir.jpg", name: "Atul Maurya"),
             SizedBox(
               width: deviceWidth>600? 40: 12,
             ),
@@ -108,7 +106,7 @@ class Person extends StatelessWidget {
           name,
           style: TextStyle(
             fontFamily: "medium",
-            color: Color(0xffFF6006),
+            color: const Color(0xffFF6006),
             fontSize: deviceWidth>600? 28: 12,
           ),
         ),
@@ -117,7 +115,7 @@ class Person extends StatelessWidget {
           "Co-Founder",
           style: TextStyle(
             fontFamily: "regular",
-            color: Color(0xff868686),
+            color: const Color(0xff868686),
             fontSize: deviceWidth>600? 22: 8,
           ),
         )

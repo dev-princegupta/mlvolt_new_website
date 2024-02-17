@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
-import 'widgets/home widgets/general widgets/customAppbar.dart';
-import 'widgets/home widgets/general widgets/drawerItems.dart';
+import '../widgets/general widgets/customAppbar.dart';
+import '../widgets/general widgets/drawerItems.dart';
 
 class ThankYouPage extends StatelessWidget {
   const ThankYouPage({super.key});
@@ -16,9 +14,10 @@ class ThankYouPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xff151515),
       appBar: const PreferredSize(
-          child: CustomAppBar(), preferredSize: Size.fromHeight(70)),
+          preferredSize: Size.fromHeight(70),
+          child: CustomAppBar()),
       drawer: deviceWidth < 600 ? const CustomDrawer() : null,
-      body: Container(
+      body: SizedBox(
         width: deviceWidth,
         height: deviceHeight,
         child: Column(
@@ -37,7 +36,7 @@ class ThankYouPage extends StatelessWidget {
                 SizedBox(
                   width: deviceWidth>600? 50: 20,
                   height: deviceWidth>600? 50: 20,
-                  child: Image.asset("Images/ok.png"),
+                  child: Image.asset("assets/images/ok.png"),
                 ),
                 SizedBox(
                   width: deviceWidth>600? 20:8,

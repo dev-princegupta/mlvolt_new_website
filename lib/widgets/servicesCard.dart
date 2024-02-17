@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class ServicesCard extends StatelessWidget {
   final String title;
@@ -44,7 +42,7 @@ class ServicesCard extends StatelessWidget {
                     style: TextStyle(
                         fontFamily: "regular",
                         fontSize: deviceWidth>600?20:14,
-                        color: Color(0xff868686)),
+                        color: const Color(0xff868686)),
                   ),
                 ),
                  SizedBox(
@@ -61,7 +59,7 @@ class ServicesCard extends StatelessWidget {
                       "Know More",
                       style: TextStyle(
                         fontFamily: "light",
-                        color: Color(0xff7A7A7A),
+                        color: const Color(0xff7A7A7A),
                         fontSize: deviceWidth>600?22:16,
                       ),
                     ),
@@ -109,7 +107,7 @@ class ServicesCard extends StatelessWidget {
                     style: TextStyle(
                         fontFamily: "regular",
                         fontSize: deviceWidth>600?20:14,
-                        color: Color(0xff868686)),
+                        color: const Color(0xff868686)),
                   ),
                 ),
                 SizedBox(
@@ -126,7 +124,7 @@ class ServicesCard extends StatelessWidget {
                       "Know More",
                       style: TextStyle(
                         fontFamily: "light",
-                        color: Color(0xff7A7A7A),
+                        color: const Color(0xff7A7A7A),
                         fontSize: deviceWidth>600?22:16,
                       ),
                     ),

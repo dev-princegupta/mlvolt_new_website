@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mlvolt_new_website/widgets/home%20widgets/carousal1.dart';
 import 'package:mlvolt_new_website/widgets/home widgets/homeCards.dart';
+import 'package:stylish_text/stylish_text.dart';
 
 class HeroSection extends StatelessWidget {
   const HeroSection({super.key});
@@ -19,8 +21,24 @@ class HeroSection extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const FittedBox(
+                    FittedBox(
                       fit: BoxFit.contain,
+                      // child: OscillateText(
+                      //   'Converting ideas into reality through',
+                      //   style: TextStyle(
+                      //     fontSize: 28,
+                      //     color: Colors.white,
+                      //     fontWeight: FontWeight.normal,
+                      //     fontFamily: 'regular',
+                      //   ),
+                      //   textDirection: TextDirection.ltr,
+                      //   duration: Duration(seconds: 3),
+                      //   reverse: false,
+                      //   sectionColor: Colors.amber,
+                      //   textScaleFactor: 3,
+                      //   fontSizeIncrease: 30,
+                      
+                      // ),
                       child: Text(
                         "Converting ideas into reality through",
                         style: TextStyle(
@@ -77,7 +95,7 @@ class HeroSection extends StatelessWidget {
                     SizedBox(
                       width: 166,
                       height: 66,
-                      child: Image.asset("images/people.png"),
+                      child: Image.asset("assets/images/people.png"),
                     ),
                     const SizedBox(
                       height: 15,
@@ -85,7 +103,7 @@ class HeroSection extends StatelessWidget {
                     SizedBox(
                       width: 165,
                       height: 27,
-                      child: Image.asset("images/rating.png"),
+                      child: Image.asset("assets/images/rating.png"),
                     ),
                     const SizedBox(
                       height: 10,
@@ -105,45 +123,47 @@ class HeroSection extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
                     height: 564,
                     width: 500,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: const [
-                        HomeCard(
-                          imgAd: "images/headphone1.png",
-                          productName: "Head Phone Design",
-                          clientName: "Mr. Amit Sinha",
-                        ),
-                        HomeCard(
-                          imgAd: "images/earbuds1.png",
-                          productName: "Earbuds Design",
-                          clientName: "Mr. Sachin Verma",
-                        ),
-                        HomeCard(
-                          imgAd: "images/earbuds2.png",
-                          productName: "Earbuds Design",
-                          clientName: "Mr. Sachin Verma",
-                        ),
-                        HomeCard(
-                          imgAd: "images/speaker1.png",
-                          productName: "Smart Speaker Design",
-                          clientName: "Mr. Robert D",
-                        ),
-                        HomeCard(
-                          imgAd: "images/bottel.png",
-                          productName: "Smart Bottel Design",
-                          clientName: "Mr. Mark H",
-                        ),
-                      ],
-                    ),
+                    child: Carousal1(),
+                    // child: ListView(
+                    //   scrollDirection: Axis.horizontal,
+                    //   children: const [
+                    //     HomeCard(
+                    //       imgAd: "assets/images/headphone1.png",
+                    //       productName: "Head Phone Design",
+                    //       clientName: "Mr. Amit Sinha",
+                    //     ),
+                    //     HomeCard(
+                    //       imgAd: "assets/images/earbuds1.png",
+                    //       productName: "Earbuds Design",
+                    //       clientName: "Mr. Sachin Verma",
+                    //     ),
+                    //     HomeCard(
+                    //       imgAd: "assets/images/earbuds2.png",
+                    //       productName: "Earbuds Design",
+                    //       clientName: "Mr. Sachin Verma",
+                    //     ),
+                    //     HomeCard(
+                    //       imgAd: "assets/images/speaker1.png",
+                    //       productName: "Smart Speaker Design",
+                    //       clientName: "Mr. Robert D",
+                    //     ),
+                    //     HomeCard(
+                    //       imgAd: "assets/images/bottel.png",
+                    //       productName: "Smart Bottel Design",
+                    //       clientName: "Mr. Mark H",
+                    //     ),
+                    //   ],
+                    // ),
                   ),
                   Container(
-                    height: 300,
+                    height: 180,
                     width: 5,
-                    color: Colors.red,
+                    color: Color(0xffFF6006),
                   ),
                 ],
               )
@@ -153,7 +173,6 @@ class HeroSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               SizedBox(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -217,7 +236,7 @@ class HeroSection extends StatelessWidget {
                     SizedBox(
                       width: 166,
                       height: 66,
-                      child: Image.asset("images/people.png"),
+                      child: Image.asset("assets/images/people.png"),
                     ),
                     const SizedBox(
                       height: 15,
@@ -225,7 +244,7 @@ class HeroSection extends StatelessWidget {
                     SizedBox(
                       width: 165,
                       height: 27,
-                      child: Image.asset("images/rating.png"),
+                      child: Image.asset("assets/images/rating.png"),
                     ),
                     const SizedBox(
                       height: 10,
@@ -243,45 +262,53 @@ class HeroSection extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 70,
+              const SizedBox(
+                height: 40,
               ),
-              SizedBox(
-                width: deviceWidth,
-                height: deviceWidth+200,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: const [
-                    HomeCard(
-                      imgAd: "images/headphone1.png",
-                      productName: "Head Phone Design",
-                      clientName: "Mr. Amit Sinha",
-                    ),
-                    HomeCard(
-                      imgAd: "images/earbuds1.png",
-                      productName: "Earbuds Design",
-                      clientName: "Mr. Sachin Verma",
-                    ),
-                    HomeCard(
-                      imgAd: "images/earbuds2.png",
-                      productName: "Earbuds Design",
-                      clientName: "Mr. Sachin Verma",
-                    ),
-                    HomeCard(
-                      imgAd: "images/speaker1.png",
-                      productName: "Smart Speaker Design",
-                      clientName: "Mr. Robert D",
-                    ),
-                    HomeCard(
-                      imgAd: "images/bottel.png",
-                      productName: "Smart Bottel Design",
-                      clientName: "Mr. Mark H",
-                    ),
-                  ],
-                ),
+              Row(
+                children: [
+                  SizedBox(
+                      width: deviceWidth - 60, height: 600, child: Carousal1()),
+                ],
               ),
 
-              
+              // SizedBox(
+              //   width: deviceWidth,
+              //   height: 800,
+
+              //   child:
+
+              // child: ListView(
+              //   scrollDirection: Axis.horizontal,
+              //   children: const [
+              //     HomeCard(
+              //       imgAd: "assets/images/headphone1.png",
+              //       productName: "Head Phone Design",
+              //       clientName: "Mr. Amit Sinha",
+              //     ),
+              //     HomeCard(
+              //       imgAd: "assets/images/earbuds1.png",
+              //       productName: "Earbuds Design",
+              //       clientName: "Mr. Sachin Verma",
+              //     ),
+              //     HomeCard(
+              //       imgAd: "assets/images/earbuds2.png",
+              //       productName: "Earbuds Design",
+              //       clientName: "Mr. Sachin Verma",
+              //     ),
+              //     HomeCard(
+              //       imgAd: "assets/images/speaker1.png",
+              //       productName: "Smart Speaker Design",
+              //       clientName: "Mr. Robert D",
+              //     ),
+              //     HomeCard(
+              //       imgAd: "assets/images/bottel.png",
+              //       productName: "Smart Bottel Design",
+              //       clientName: "Mr. Mark H",
+              //     ),
+              //   ],
+              // ),
+              // ),
             ],
           );
   }

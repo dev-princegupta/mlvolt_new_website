@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mlvolt_new_website/widgets/contactForm.dart';
-import 'package:mlvolt_new_website/widgets/home%20widgets/general%20widgets/footer.dart';
+import 'package:mlvolt_new_website/widgets/general%20widgets/footer.dart';
 
-import 'widgets/home widgets/general widgets/customAppbar.dart';
-import 'widgets/home widgets/general widgets/drawerItems.dart';
+import '../widgets/general widgets/customAppbar.dart';
+import '../widgets/general widgets/drawerItems.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({super.key});
@@ -15,7 +15,8 @@ class ContactPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xff151515),
       appBar: const PreferredSize(
-          child: CustomAppBar(), preferredSize: Size.fromHeight(70)),
+          preferredSize: Size.fromHeight(70),
+          child: CustomAppBar()),
       drawer: deviceWidth < 600 ? const CustomDrawer() : null,
       body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -36,11 +37,11 @@ class ContactPage extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Column(
+                                  const Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                    children: const [
+                                    children: [
                                       Text(
                                         "Namaste",
                                         style: TextStyle(
@@ -67,13 +68,13 @@ class ContactPage extends StatelessWidget {
                                   SizedBox(
                                     height: 450,
                                     child:
-                                        Image.asset("images/verticalLine.png"),
+                                        Image.asset("assets/images/verticalLine.png"),
                                   ),
-                                  Column(
+                                  const Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                    children: const [
+                                    children: [
                                       Text(
                                         "What’s Your Idea?",
                                         style: TextStyle(

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class ProductCard extends StatelessWidget {
   final String imgAd;
@@ -60,11 +58,11 @@ class ProductCard extends StatelessWidget {
                           style: TextStyle(
                             fontFamily: 'regular',
                             fontSize: deviceWidth>600?20:14,
-                            color: Color(0xff868686),
+                            color: const Color(0xff868686),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8),
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
                           child: Container(
                             width: 5,
                             height: 25,
@@ -76,7 +74,7 @@ class ProductCard extends StatelessWidget {
                           style: TextStyle(
                             fontFamily: 'regular',
                             fontSize: deviceWidth>600?20:14,
-                            color: Color(0xff868686),
+                            color: const Color(0xff868686),
                           ),
                         ),
                       ],
@@ -88,9 +86,9 @@ class ProductCard extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'medium',
                     fontSize: deviceWidth>600?20:10,
-                    color: Color(0xffFF6006),
+                    color: const Color(0xffFF6006),
                   ),
-                ):SizedBox(),
+                ):const SizedBox(),
               ],
             ),
           ),

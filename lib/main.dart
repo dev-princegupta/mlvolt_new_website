@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:mlvolt_new_website/contactPage.dart';
+import 'package:mlvolt_new_website/testpage.dart';
 import 'firebase_options.dart';
-import 'homePage.dart';
+import 'pages/homePage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
         theme: ThemeData(
-          appBarTheme: AppBarTheme( iconTheme: IconThemeData(color: Colors.white))
+          appBarTheme: const AppBarTheme( iconTheme: IconThemeData(color: Colors.white))
         ),
-        debugShowCheckedModeBanner: false, home: HomePage());
+        debugShowCheckedModeBanner: false, home: const HomePage());
   }
 }

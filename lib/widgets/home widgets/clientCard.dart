@@ -28,7 +28,7 @@ class ClientCard extends StatelessWidget {
           children: [
             Text(
               clientName,
-              style: TextStyle(
+              style: const TextStyle(
                 fontFamily: 'medium',
                 fontSize: 28,
                 color: Colors.white,
@@ -39,7 +39,7 @@ class ClientCard extends StatelessWidget {
             ),
              Text(
               serviceName,
-              style: TextStyle(
+              style: const TextStyle(
                 fontFamily: 'medium',
                 fontSize: 28,
                 color: Colors.white,
@@ -47,7 +47,7 @@ class ClientCard extends StatelessWidget {
             ),
              Text(
               description,
-              style: TextStyle(
+              style: const TextStyle(
                 fontFamily: 'thin',
                 fontSize: 16,
                 color: Colors.white,

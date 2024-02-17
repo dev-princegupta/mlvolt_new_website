@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:mlvolt_new_website/widgets/home widgets/clientCard.dart';
@@ -117,7 +116,7 @@ class OurClients extends StatelessWidget {
             Stack(
               children: [SizedBox(
                   width: deviceWidth,
-                  child: Text(
+                  child: const Text(
                     "Our clients",
                     style: TextStyle(
                         fontFamily: 'bold', fontSize: 40, color: Colors.white),
@@ -157,7 +156,7 @@ class OurClients extends StatelessWidget {
                           color: Colors.white)),
                 ]),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           SizedBox(
@@ -165,7 +164,7 @@ class OurClients extends StatelessWidget {
             height: 300,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: [
+              children: const [
                 ClientCard(
                     color: Colors.black,
                     clientName: "Amit Sinha",

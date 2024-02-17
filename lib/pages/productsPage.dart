@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mlvolt_new_website/widgets/home%20widgets/general%20widgets/footer.dart';
+import 'package:mlvolt_new_website/widgets/general%20widgets/footer.dart';
 
-import 'widgets/home widgets/general widgets/customAppbar.dart';
-import 'widgets/home widgets/general widgets/drawerItems.dart';
-import 'widgets/home widgets/products widgets/productCard.dart';
+import '../widgets/general widgets/customAppbar.dart';
+import '../widgets/general widgets/drawerItems.dart';
+import '../widgets/products widgets/productCard.dart';
 
 class ProductsPage extends StatelessWidget {
   const ProductsPage({super.key});
@@ -15,7 +15,8 @@ class ProductsPage extends StatelessWidget {
     return Scaffold(
             backgroundColor: const Color(0xff151515),
                appBar: const PreferredSize(
-          child: CustomAppBar(), preferredSize: Size.fromHeight(70)),
+          preferredSize: Size.fromHeight(70),
+          child: CustomAppBar()),
       drawer: deviceWidth < 600 ? const CustomDrawer() : null,
 
       body: SingleChildScrollView(
@@ -24,7 +25,7 @@ class ProductsPage extends StatelessWidget {
               left: deviceWidth > 600 ? 63 : 10,
               right: deviceWidth > 600 ? 63 : 10),
           child: SizedBox(
-            height: deviceWidth > 600 ? 4000 : 1800,
+            height: deviceWidth > 600 ? 3800 : 1800,
             width: deviceWidth,
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -93,7 +94,7 @@ class ProductsPage extends StatelessWidget {
                                   ),
                                 ),
                               )
-                            : SizedBox(),
+                            : const SizedBox(),
                         deviceWidth > 600
                             ? Padding(
                                 padding: EdgeInsets.only(
@@ -107,14 +108,14 @@ class ProductsPage extends StatelessWidget {
                                   ),
                                 ),
                               )
-                            : SizedBox(),
+                            : const SizedBox(),
                       ],
                     ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(
                         top: deviceWidth > 600 ? 100 : 40, left: 0, right: 0),
-                    child: Container(
+                    child: SizedBox(
                       height: deviceWidth > 600 ? 2800 : 1200,
       
                       // color: Colors.amber,
@@ -129,56 +130,56 @@ class ProductsPage extends StatelessWidget {
                         children: const [
                           ProductCard(
                             productName: "Headphone",
-                            imgAd: "images/p1.jpg",
+                            imgAd: "assets/images/p1.jpg",
                             industry: "Wearables",
                             aText: "Research",
                             bText: "Branding",
                           ),
                           ProductCard(
                             productName: "Smart Bottel",
-                            imgAd: "images/p2.jpg",
+                            imgAd: "assets/images/p2.jpg",
                             industry: "Wearables",
                             aText: "ok",
                             bText: "ok",
                           ),
                           ProductCard(
                             productName: "Smart Bottel",
-                            imgAd: "images/p3.jpg",
+                            imgAd: "assets/images/p3.jpg",
                             industry: "Wearables",
                             aText: "ok",
                             bText: "ok",
                           ),
                           ProductCard(
                             productName: "Smart Bottel",
-                            imgAd: "images/p4.jpg",
+                            imgAd: "assets/images/p4.jpg",
                             industry: "Wearables",
                             aText: "ok",
                             bText: "ok",
                           ),
                           ProductCard(
                             productName: "Smart Bottel",
-                            imgAd: "images/p5.jpg",
+                            imgAd: "assets/images/p5.jpg",
                             industry: "Wearables",
                             aText: "ok",
                             bText: "ok",
                           ),
                           ProductCard(
                             productName: "Smart Bottel",
-                            imgAd: "images/p6.jpg",
+                            imgAd: "assets/images/p6.jpg",
                             industry: "Wearables",
                             aText: "ok",
                             bText: "ok",
                           ),
                           ProductCard(
                             productName: "Smart Bottel",
-                            imgAd: "images/p7.jpg",
+                            imgAd: "assets/images/p7.jpg",
                             industry: "Wearables",
                             aText: "ok",
                             bText: "ok",
                           ),
                           ProductCard(
                             productName: "Smart Bottel",
-                            imgAd: "images/p8.jpg",
+                            imgAd: "assets/images/p8.jpg",
                             industry: "Wearables",
                             aText: "ok",
                             bText: "ok",
@@ -190,7 +191,7 @@ class ProductsPage extends StatelessWidget {
                   Padding(
                     padding:
                         EdgeInsets.only(top: deviceWidth > 600 ? 200 : 50),
-                    child: Footer(),
+                    child: const Footer(),
                   )
                 ]),
           ),

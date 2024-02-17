@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class CustomerCard extends StatelessWidget {
   final String imgAd;
@@ -54,7 +52,7 @@ class CustomerCard extends StatelessWidget {
               name,
               style: TextStyle(
                 fontFamily: "regular",
-                color: Color(0xffFF6006),
+                color: const Color(0xffFF6006),
                 fontSize: deviceWidth>600?25:16,
               ),
             ),
@@ -62,7 +60,7 @@ class CustomerCard extends StatelessWidget {
               position,
               style: TextStyle(
                 fontFamily: deviceWidth>600? "thin": "regular",
-                color: Color(0xff868686),
+                color: const Color(0xff868686),
                 fontSize: deviceWidth>600?25:16,
               ),
             ),

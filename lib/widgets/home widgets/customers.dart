@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:mlvolt_new_website/widgets/home widgets/customerCard.dart';
 
 class CustomerFeedbackHome extends StatelessWidget {
@@ -22,16 +20,16 @@ class CustomerFeedbackHome extends StatelessWidget {
               style: TextStyle(
                 fontFamily: "bold",
                 fontSize: deviceWidth>600?40:25,
-                color: Color(0xff959595),
+                color: const Color(0xff959595),
               ),
             ),
           ),
           Positioned(
             bottom:  deviceWidth>600?15: 9,
-            right: deviceWidth>600?5: 14,
+            right: deviceWidth>600?1: 14,
             child: Container(
-              width: deviceWidth>600?14: 10,
-              height: deviceWidth>600?14: 10,
+              width: deviceWidth>600?10: 10,
+              height: deviceWidth>600?10: 10,
               color: const Color(0xffFF6006),
             ),
           ),
@@ -40,7 +38,7 @@ class CustomerFeedbackHome extends StatelessWidget {
           height:deviceWidth>600? 90:50,
         ),
         const CustomerCard(
-          imgAd: "images/amit.jpg",
+          imgAd: "assets/images/amit.jpg",
           name: "Mr. Amit Sinha",
           position: "Entrepreneur",
           comment:
@@ -50,7 +48,7 @@ class CustomerFeedbackHome extends StatelessWidget {
           height: deviceWidth>600? 70:30,
         ),
         const CustomerCard(
-            imgAd: "images/jitendra.jpg",
+            imgAd: "assets/images/jitendra.jpg",
             name: "Dr. Jitendra Gupta",
             position: "Entrepreneur",
             comment:

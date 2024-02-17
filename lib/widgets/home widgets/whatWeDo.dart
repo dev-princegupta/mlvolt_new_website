@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class WhatWeDo extends StatelessWidget {
   const WhatWeDo({super.key});
@@ -21,7 +19,7 @@ class WhatWeDo extends StatelessWidget {
             fontFamily: "medium",
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 100,
         ),
         Flexible(
@@ -69,7 +67,7 @@ class WhatWeDo extends StatelessWidget {
             fontFamily: "medium",
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
         SizedBox(
