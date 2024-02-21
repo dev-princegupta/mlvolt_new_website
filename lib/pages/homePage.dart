@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mlvolt_new_website/widgets/home widgets/customers.dart';
-import 'package:mlvolt_new_website/widgets/general%20widgets/customAppbar.dart';
-import 'package:mlvolt_new_website/widgets/general%20widgets/footer.dart';
+import 'package:mlvolt_new_website/widgets/common%20widgets/footer.dart';
 import 'package:mlvolt_new_website/widgets/home widgets/heroSection.dart';
-import 'package:mlvolt_new_website/widgets/home widgets/homeServices.dart';
+import 'package:mlvolt_new_website/widgets/home%20widgets/ourServices.dart';
 import 'package:mlvolt_new_website/widgets/home widgets/ourClients.dart';
-import 'package:mlvolt_new_website/widgets/home widgets/ourworkHome.dart';
+import 'package:mlvolt_new_website/widgets/home%20widgets/ourWork.dart';
 
-import '../widgets/general widgets/drawerItems.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -15,15 +14,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
-    return Scaffold(
-      backgroundColor: const Color(0xff151515),
-      appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(70),
-          child: CustomAppBar()),
-      drawer: deviceWidth < 600 ? const CustomDrawer() : null,
-      body: SingleChildScrollView(
+    return SingleChildScrollView(
           child: SizedBox(
-              height: deviceWidth > 600 ? 4750 : 3800,
+              height: deviceWidth > 600 ? 4750 : 3400,
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,14 +43,14 @@ class HomePage extends StatelessWidget {
                     ),
                     Padding(
                       padding: EdgeInsets.only(
-                          top: 100,
+                          top: deviceWidth > 600 ? 100 : 30,
                           left: 0,
                           right: deviceWidth > 600 ? 63 : 10),
                       child: const OurWorkHome(),
                     ),
                     Padding(
                       padding: EdgeInsets.only(
-                          top: 100,
+                          top: deviceWidth > 600 ? 100 : 30,
                           left: deviceWidth > 600 ? 63 : 10,
                           right: deviceWidth > 600 ? 63 : 10),
                       child: const CustomerFeedbackHome(),
@@ -68,9 +61,8 @@ class HomePage extends StatelessWidget {
                         left: deviceWidth > 600 ? 63 : 10,
                         right: deviceWidth > 600 ? 63 : 10,
                       ),
-                      child: Footer(),
+                      child: const Footer(),
                     )
-                  ]))),
-    );
+                  ])));
   }
 }

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mlvolt_new_website/widgets/general%20widgets/footer.dart';
-import 'package:mlvolt_new_website/widgets/home%20widgets/whatWeDo.dart';
-import 'package:mlvolt_new_website/widgets/servicesCard.dart';
+import 'package:mlvolt_new_website/widgets/common%20widgets/footer.dart';
+import 'package:mlvolt_new_website/widgets/services%20widgets/whatWeDo.dart';
+import 'package:mlvolt_new_website/widgets/services%20widgets/servicesCard.dart';
 
-import '../widgets/general widgets/customAppbar.dart';
-import '../widgets/general widgets/drawerItems.dart';
 
 class ServicesPage extends StatelessWidget {
   const ServicesPage({super.key});
@@ -13,14 +11,19 @@ class ServicesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-            backgroundColor: const Color(0xff151515),
-               appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(70),
-          child: CustomAppBar()),
-      drawer: deviceWidth < 600 ? const CustomDrawer() : null,
+     String device(){
+      String dvc;
+      if(deviceWidth<=600){
+        dvc = "mobile";
+      }else if(deviceWidth>600&&deviceWidth<=1200){
+        dvc = "tab";
+      }else{
+        dvc = "desktop";
+      }
+      return dvc;
+    }
 
-      body: SingleChildScrollView(
+    return SingleChildScrollView(
           child: SizedBox(
               height: deviceWidth>600?3650:1900,
               child: Column(
@@ -51,7 +54,7 @@ class ServicesPage extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: deviceWidth>600?63:10, right: deviceWidth>600?63:10,top: deviceWidth>600? 100:50),
+                      padding: EdgeInsets.only(left:  device()=='mobile' ? 10 : device()=='desktop'? 63:20, right: device()=='mobile' ? 10 : device()=='desktop'? 63:20,top: device()=='mobile' ? 50 : device()=='desktop'? 100:70),
                       child: const ServicesCard(
                         title: "CAD Design",
                         body:
@@ -85,8 +88,7 @@ class ServicesPage extends StatelessWidget {
                       padding: EdgeInsets.only(left: deviceWidth>600?63:10, right: deviceWidth>600?63:10,top: deviceWidth>600? 100:50),
                       child: const Footer(),
                     )
-                  ]))),
-    );
+                  ])));
     
   }
 }

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mlvolt_new_website/widgets/founders.dart';
-import 'package:mlvolt_new_website/widgets/general%20widgets/drawerItems.dart';
-import 'package:mlvolt_new_website/widgets/general%20widgets/footer.dart';
-import 'package:mlvolt_new_website/widgets/home%20widgets/ourStory.dart';
-import 'package:mlvolt_new_website/widgets/home%20widgets/whoWeAre.dart';
-import '../widgets/general widgets/customAppbar.dart';
+import 'package:mlvolt_new_website/widgets/about%20widgets/founders.dart';
+import 'package:mlvolt_new_website/widgets/common%20widgets/footer.dart';
+import 'package:mlvolt_new_website/widgets/about%20widgets/ourStory.dart';
+import 'package:mlvolt_new_website/widgets/about%20widgets/whoWeAre.dart';
+
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -13,16 +12,22 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-      backgroundColor: const Color(0xff151515),
-      appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(70),
-          child: CustomAppBar()),
-      drawer: deviceWidth < 600 ? const CustomDrawer() : null,
-      body: SingleChildScrollView(
+    String device(){
+      String dvc;
+      if(deviceWidth<=600){
+        dvc = "mobile";
+      }else if(deviceWidth>600&&deviceWidth<=1200){
+        dvc = "tab";
+      }else{
+        dvc = "desktop";
+      }
+      return dvc;
+    }
+
+    return SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: SizedBox(
-            height: deviceWidth > 600 ? 3750 : 2170,
+            height: device()=='mobile' ? 2000 : device()=='desktop'? 3750:3000,
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,7 +54,7 @@ class AboutPage extends StatelessWidget {
                     child: Text(
                       "Not only this we are doing more. Keep Scrolling.",
                       style: TextStyle(
-                          fontSize: deviceWidth > 600 ? 20 : 14,
+                          fontSize: device()=='mobile' ? 14 : device()=='desktop'? 20:16,
                           color: const Color(0xff868686),
                           fontFamily: "medium"),
                     ),
@@ -70,7 +75,7 @@ class AboutPage extends StatelessWidget {
                       style: TextStyle(
                         fontFamily: "bold",
                         color: const Color(0xff2E2D2D),
-                        fontSize: deviceWidth > 600 ? 120 : 55,
+                        fontSize: device()=='mobile' ? 55 : device()=='desktop'? 120:80,
                       ),
                     ),
                   ),
@@ -90,7 +95,6 @@ class AboutPage extends StatelessWidget {
                     child: const Footer(),
                   )
                 ])),
-      ),
-    );
+      );
   }
 }

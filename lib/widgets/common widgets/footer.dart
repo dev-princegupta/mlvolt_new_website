@@ -1,12 +1,14 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:mlvolt_new_website/models/currentPage.dart';
 import 'package:mlvolt_new_website/pages/aboutPage.dart';
 import 'package:mlvolt_new_website/pages/contactPage.dart';
 import 'package:mlvolt_new_website/pages/productsPage.dart';
 import 'package:mlvolt_new_website/pages/servicesPage.dart';
 
-import 'package:mlvolt_new_website/widgets/general%20widgets/customText.dart';
+import 'package:mlvolt_new_website/widgets/common%20widgets/customText.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'customButton.dart';
@@ -15,23 +17,32 @@ class Footer extends StatelessWidget {
   const Footer({super.key});
 
   redirectLinkedin() async {
-     Uri linkedinUri = Uri(scheme: "https", host: "www.linkedin.com", path: "company/mlvoltoffical" );
+    Uri linkedinUri = Uri(
+        scheme: "https",
+        host: "www.linkedin.com",
+        path: "company/mlvoltoffical");
     if (await canLaunchUrl(linkedinUri)) {
       await launchUrl(linkedinUri);
     } else {
       throw 'Could not launch ';
     }
   }
-   redirectInstagram() async {
-     Uri instagramUri = Uri(scheme: "https", host: "www.instagram.com", path: "design.mlvolt/" );
+
+  redirectInstagram() async {
+    Uri instagramUri =
+        Uri(scheme: "https", host: "www.instagram.com", path: "design.mlvolt/");
     if (await canLaunchUrl(instagramUri)) {
       await launchUrl(instagramUri);
     } else {
       throw 'Could not launch ';
     }
   }
-   redirectFacebook() async {
-     Uri facebookUri = Uri(scheme: "https", host: "www.facebook.com", path: "profile.php?id=100064113364453/" );
+
+  redirectFacebook() async {
+    Uri facebookUri = Uri(
+        scheme: "https",
+        host: "www.facebook.com",
+        path: "profile.php?id=100064113364453/");
     if (await canLaunchUrl(facebookUri)) {
       await launchUrl(facebookUri);
     } else {
@@ -39,11 +50,24 @@ class Footer extends StatelessWidget {
     }
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
-    double deviceHeight = MediaQuery.of(context).size.height;
 
+    String device(){
+      String dvc;
+      if(deviceWidth<=600){
+        dvc = "mobile";
+      }else if(deviceWidth>600&&deviceWidth<=1200){
+        dvc = "tab";
+      }else{
+        dvc = "desktop";
+      }
+      return dvc;
+    }
+    CurrentPage provider = Provider.of<CurrentPage>(context);
 
     return deviceWidth > 600
         ? Row(
@@ -54,85 +78,81 @@ class Footer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                   Text(
                     "MLVOLT",
                     style: TextStyle(
                         fontFamily: "bold",
-                        fontSize: 40,
+                        fontSize: device()=='desktop'? 40:32,
                         color: Color(
                           0xffFF6006,
                         )),
                   ),
-                  const Text(
+                  Text(
                     "Let’s create a great digital experience.",
                     style: TextStyle(
                         fontFamily: "regular",
-                        fontSize: 24,
+                        fontSize: device()=='desktop'? 24:18,
                         color: Colors.white),
                   ),
-                  const SizedBox(
-                    height: 38,
+                   SizedBox(
+                    height: device()=='desktop'? 38:28,
                   ),
                   CustomButton(
                     onPressed: () {
-                      Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const ContactPage()),
-                            );
+                      provider.updateCurrentPage("CONTACT");
                     },
                     buttonText: "Contact Us",
                     outlineColor: Color(0xffFF6006),
                     textColor: Colors.white,
                     hoverTextColor: Colors.black,
                   ),
-                  const SizedBox(
-                    height: 45,
+                  SizedBox(
+                    height: device()=='desktop'? 45:30,
                   ),
                   SizedBox(
-                    width: 530,
+                    width: device()=='desktop'? 530:300,
                     height: 5,
                     child: Image.asset("images/line.png"),
                   ),
-                  const SizedBox(
-                    height: 48,
+                  SizedBox(
+                    height: device()=='desktop'? 40: 30,
                   ),
                   RichText(
-                      text: const TextSpan(children: [
+                      text:  TextSpan(children: [
                     TextSpan(
                       text: "A design agency By",
                       style: TextStyle(
                           fontFamily: "regular",
                           color: Colors.white,
-                          fontSize: 20),
+                          fontSize: device()=='desktop'? 20:16,),
                     ),
                     TextSpan(
                       text: " MLVOLT",
                       style: TextStyle(
                           fontFamily: "bold",
                           color: Color(0xffFF6006),
-                          fontSize: 20),
+                          fontSize: device()=='desktop'? 20:16,),
                     ),
                   ])),
-                  const SizedBox(
-                    height: 36,
+                   SizedBox(
+                    height: device()=='desktop'? 30:28,
                   ),
-                  const Text(
+                   Text(
                     "+91 9557676740",
                     style: TextStyle(
                         fontFamily: "regular",
                         color: Colors.white,
-                        fontSize: 25),
+                        fontSize: device()=='desktop'? 25:16,),
                   ),
-                  const SizedBox(
-                    height: 24,
+                   SizedBox(
+                    height: device()=='desktop'? 25:16,
                   ),
-                  const Text(
+                  Text(
                     "hi@mlvolt.com",
                     style: TextStyle(
                         fontFamily: "regular",
                         color: Color(0xffFF6006),
-                        fontSize: 25),
+                        fontSize: device()=='desktop'? 25:16,),
                   ),
                 ],
               ),
@@ -141,128 +161,109 @@ class Footer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   SizedBox(
-                    width: 300,
+                    width: device()=='desktop'? 300:200,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         InkWell(
-                          onTap: (){
-                              Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const ServicesPage()),
-                            );
+                          onTap: () {
+                            provider.updateCurrentPage("SERVIES");
                           },
-                          child: const CustomText(
+                          child:  CustomText(
                             text: "Services",
                             normalFontColor: Colors.white,
                             howerFontColor: Color(0xffFF6006),
                             fontFamily: 'medium',
-                            fontSize: 30,
+                            fontSize: device()=='desktop'? 30:20,
                           ),
                         ),
                         InkWell(
-                          onTap: (){
-                              Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const AboutPage()),
-                            );
+                          onTap: () {
+                            provider.updateCurrentPage("ABOUT");
                           },
-                          child: const CustomText(
+                          child:  CustomText(
                             text: "About",
                             normalFontColor: Colors.white,
                             howerFontColor: Color(0xffFF6006),
                             fontFamily: 'medium',
-                            fontSize: 30,
+                            fontSize: device()=='desktop'? 30:20,
                           ),
                         ),
-                     
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 50,
+                   SizedBox(
+                    height: device()=='desktop'? 50:20,
                   ),
                   SizedBox(
-                    width: 300,
+                    width: device()=='desktop'? 300:200,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         InkWell(
-                          onTap: (){
-                            
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const ProductsPage()),
-                            );
+                          onTap: () {
+                            provider.updateCurrentPage("PROJECTS");
                           },
-                          child: const CustomText(
+                          child:  CustomText(
                             text: "Projects",
                             normalFontColor: Colors.white,
                             howerFontColor: Color(0xffFF6006),
                             fontFamily: 'medium',
-                            fontSize: 30,
+                            fontSize: device()=='desktop'? 30:20,
                           ),
                         ),
                         InkWell(
-                          onTap: (){
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const ContactPage()),
-                            );
+                          onTap: () {
+                            provider.updateCurrentPage("CONTACT");
                           },
-                          child: const CustomText(
+                          child: CustomText(
                             text: "Contact",
                             normalFontColor: Colors.white,
                             howerFontColor: Color(0xffFF6006),
                             fontFamily: 'medium',
-                            fontSize: 30,
+                            fontSize: device()=='desktop'? 30:20,
                           ),
                         ),
-                     
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 90,
+                  SizedBox(
+                    height: device()=='desktop'? 90:50,
                   ),
                   SizedBox(
-                    width: 170,
+                    width: device()=='desktop'? 170:100,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         InkWell(
-                          onTap: (){
+                          onTap: () {
                             redirectLinkedin();
                           },
                           child: SizedBox(
-                            width: 35,
-                            height: 35,
+                            width: device()=='desktop'? 35:20,
+                            height: device()=='desktop'? 35:20,
                             child: Image.asset('assets/images/li.png'),
                           ),
                         ),
                         InkWell(
-                          onTap: (){
+                          onTap: () {
                             redirectInstagram();
                           },
                           child: SizedBox(
-                            width: 35,
-                            height: 35,
+                            width: device()=='desktop'? 35:20,
+                            height: device()=='desktop'? 35:20,
                             child: Image.asset('assets/images/ig.png'),
                           ),
                         ),
                         InkWell(
-                          onTap: (){
+                          onTap: () {
                             redirectFacebook();
                           },
                           child: SizedBox(
-                            width: 35,
-                            height: 35,
+                            width: device()=='desktop'? 35:20,
+                            height: device()=='desktop'? 35:20,
                             child: Image.asset('assets/images/fb.png'),
                           ),
                         ),
@@ -301,7 +302,9 @@ class Footer extends StatelessWidget {
                 height: 18,
               ),
               CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  provider.updateCurrentPage("CONTACT");
+                },
                 buttonText: "Contact Us",
                 outlineColor: Color(0xffFF6006),
                 textColor: Colors.white,
@@ -315,7 +318,6 @@ class Footer extends StatelessWidget {
                 height: 5,
                 child: Image.asset("assets/images/line.png"),
               ),
-
               const SizedBox(
                 height: 15,
               ),
@@ -343,9 +345,9 @@ class Footer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         print("hello");
-                      // await redirect();
+                        // await redirect();
                       },
                       child: SizedBox(
                         width: 18,

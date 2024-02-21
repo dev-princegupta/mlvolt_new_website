@@ -24,6 +24,20 @@ class _CustomButtonState extends State<CustomButton> {
 
   @override
   Widget build(BuildContext context) {
+    double deviceWidth = MediaQuery.of(context).size.width;
+
+    String device(){
+      String dvc;
+      if(deviceWidth<=600){
+        dvc = "mobile";
+      }else if(deviceWidth>600&&deviceWidth<=1200){
+        dvc = "tab";
+      }else{
+        dvc = "desktop";
+      }
+      return dvc;
+    }
+
     return MouseRegion(
       onEnter: (_) => _handleHover(true),
       onExit: (_) => _handleHover(false),
@@ -38,21 +52,19 @@ class _CustomButtonState extends State<CustomButton> {
         onPressed: widget.onPressed,
         
         child: Padding(
-          padding: const EdgeInsets.only(top: 20, bottom: 20, left: 8, right: 8),
+          padding: EdgeInsets.symmetric(
+            horizontal: device()=='mobile' ? 8 : device()=='desktop'? 8:8,
+            vertical: device()=='mobile' ? 10 : device()=='desktop'? 20:14),
           child: Text(
             widget.buttonText,
             style: TextStyle(
               color: _isHovered ? widget.hoverTextColor : widget.textColor,
-              fontSize: 20
+              fontSize: device()=='mobile' ? 14 : device()=='desktop'? 20:16)
             ),
           ),
         ),
-        // shape: RoundedRectangleBorder(
-        //   side: BorderSide(color: widget.outlineColor),
-        //   borderRadius: BorderRadius.circular(8.0),
-        // ),
-      ),
-    );
+      );
+    
   }
 
   void _handleHover(bool isHovered) {

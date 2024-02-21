@@ -16,23 +16,35 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-            double deviceWidth = MediaQuery.of(context).size.width;
+    double deviceWidth = MediaQuery.of(context).size.width;
+
+    String device() {
+      String dvc;
+      if (deviceWidth <= 600) {
+        dvc = "mobile";
+      } else if (deviceWidth > 600 && deviceWidth <= 1200) {
+        dvc = "tab";
+      } else {
+        dvc = "desktop";
+      }
+      return dvc;
+    }
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-         // width: deviceWidth>600? 549: deviceWidth*0.5,
-        //  height: deviceWidth>600?525: deviceWidth*0.5,
+          // width: deviceWidth>600? 549: deviceWidth*0.5,
+          //  height: deviceWidth>600?525: deviceWidth*0.5,
           color: Colors.amber,
           child: Image.asset(imgAd),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 15),
           child: SizedBox(
-            width: deviceWidth>600?549:deviceWidth*0.5-20,
-            
+            width: device()=='mobile' ? deviceWidth*0.5 - 20 : device()=='desktop'? 549:300,
+
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +57,7 @@ class ProductCard extends StatelessWidget {
                       productName,
                       style: TextStyle(
                         fontFamily: 'bold',
-                        fontSize: deviceWidth>600?35:16,
+                        fontSize: device()=='mobile' ? 16 : device()=='desktop'? 35:28,
                         color: Colors.white,
                       ),
                     ),
@@ -57,7 +69,7 @@ class ProductCard extends StatelessWidget {
                           aText,
                           style: TextStyle(
                             fontFamily: 'regular',
-                            fontSize: deviceWidth>600?20:14,
+                            fontSize:device()=='mobile' ? 14 : device()=='desktop'? 20:16,
                             color: const Color(0xff868686),
                           ),
                         ),
@@ -73,7 +85,7 @@ class ProductCard extends StatelessWidget {
                           bText,
                           style: TextStyle(
                             fontFamily: 'regular',
-                            fontSize: deviceWidth>600?20:14,
+                            fontSize: device()=='mobile' ? 14 : device()=='desktop'? 20:16,
                             color: const Color(0xff868686),
                           ),
                         ),
@@ -81,14 +93,16 @@ class ProductCard extends StatelessWidget {
                     )
                   ],
                 ),
-              deviceWidth>600?  Text(
-                  industry,
-                  style: TextStyle(
-                    fontFamily: 'medium',
-                    fontSize: deviceWidth>600?20:10,
-                    color: const Color(0xffFF6006),
-                  ),
-                ):const SizedBox(),
+                deviceWidth > 600
+                    ? Text(
+                        industry,
+                        style: TextStyle(
+                          fontFamily: 'medium',
+                          fontSize: device()=='mobile' ? 10 : device()=='desktop'? 20:14,
+                          color: const Color(0xffFF6006),
+                        ),
+                      )
+                    : const SizedBox(),
               ],
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mlvolt_new_website/widgets/common%20widgets/responsiveLayout.dart';
 
 class ClientCard extends StatelessWidget {
   final Color color;
@@ -16,12 +17,102 @@ class ClientCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
-    return  Container(
-      width: deviceWidth>600? 300:deviceWidth-60,
-      height: deviceWidth>600?280:60,
+
+    Widget tab(){
+      return Container(
+      width: 250,
+      height: 220,
       color: color,
       child: Padding(
-        padding: EdgeInsets.all(deviceWidth>600?40:18),
+        padding: const EdgeInsets.all(14),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              clientName,
+              style: const TextStyle(
+                fontFamily: 'medium',
+                fontSize: 22,
+                color: Colors.white,
+              ),
+            ),
+           const SizedBox(
+              height: 60,
+            ),
+             Text(
+              serviceName,
+              style: const TextStyle(
+                fontFamily: 'medium',
+                fontSize: 18,
+                color: Colors.white,
+              ),
+            ),
+             Text(
+              description,
+              style: const TextStyle(
+                fontFamily: 'thin',
+                fontSize: 12,
+                color: Colors.white,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+    }
+
+    Widget mobile(){
+      return Container(
+      width: 250,
+      height: 220,
+      color: color,
+      child: Padding(
+        padding: const EdgeInsets.all(14),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              clientName,
+              style: const TextStyle(
+                fontFamily: 'medium',
+                fontSize: 22,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(
+              height:30,
+            ),
+             Text(
+              serviceName,
+              style: const TextStyle(
+                fontFamily: 'medium',
+                fontSize: 18,
+                color: Colors.white,
+              ),
+            ),
+             Text(
+              description,
+              style: const TextStyle(
+                fontFamily: 'thin',
+                fontSize: 12,
+                color: Colors.white,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+    }
+
+    Widget desktop(){
+      return Container(
+      width: 300,
+      height:280,
+      color: color,
+      child: Padding(
+        padding: const EdgeInsets.all(40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,8 +125,8 @@ class ClientCard extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            SizedBox(
-              height: deviceWidth>600?90:30,
+            const SizedBox(
+              height: 90,
             ),
              Text(
               serviceName,
@@ -57,5 +148,11 @@ class ClientCard extends StatelessWidget {
         ),
       ),
     );
+    }
+
+    return  ResponsiveLayout(
+      mobile: mobile(), 
+      tablet: tab(), 
+      desktop: desktop());
   }
 }

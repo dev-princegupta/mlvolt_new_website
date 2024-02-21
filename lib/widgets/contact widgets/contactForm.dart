@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:mlvolt_new_website/pages/thankYouPage.dart';
-import 'package:mlvolt_new_website/widgets/general%20widgets/customButton.dart';
+import 'package:mlvolt_new_website/models/currentPage.dart';
+import 'package:mlvolt_new_website/widgets/common%20widgets/customButton.dart';
+import 'package:provider/provider.dart';
 
 class CustomContactForm extends StatefulWidget {
   const CustomContactForm({super.key});
@@ -20,34 +21,41 @@ class _CustomContactFormState extends State<CustomContactForm> {
 
   // final databaseReference = FirebaseDatabase.instance.reference();
 
-  Future<void> sendQuery() async {
-    CollectionReference users = FirebaseFirestore.instance.collection('query');
-
-    await users
-        .doc(emailController.text)
-        .set({
-          'name': nameController.text,
-          'email': emailController.text,
-          'contact': contactController.text,
-          'query': queryController.text
-        })
-        .then((value) {
-          Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ThankYouPage()),
-                      );
-        })
-        .catchError((error) => print("Problem: $error"));
-  }
-
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
+    CurrentPage provider = Provider.of<CurrentPage>(context);
+
+
+       String device(){
+      String dvc;
+      if(deviceWidth<=600){
+        dvc = "mobile";
+      }else if(deviceWidth>600&&deviceWidth<=1200){
+        dvc = "tab";
+      }else{
+        dvc = "desktop";
+      }
+      return dvc;
+    }
+
+    Future<void> sendQuery() async {
+      CollectionReference users =
+          FirebaseFirestore.instance.collection('query');
+
+      await users.doc(emailController.text).set({
+        'name': nameController.text,
+        'email': emailController.text,
+        'contact': contactController.text,
+        'query': queryController.text
+      }).then((value) {
+        provider.updateCurrentPage("THANKYOU");
+      }).catchError((error) => provider.updateCurrentPage("HOME"));
+    }
 
     return Container(
-      width: deviceWidth > 600 ? 400 : deviceWidth - 20,
-      height: 560,
+      width: device()=='mobile' ? deviceWidth*0.9 : device()=='desktop'? 400:deviceWidth*0.4,
+      height: 560,//device()=='mobile' ? 500 : device()=='desktop'? 560:500,
       decoration: BoxDecoration(
         color: Colors.transparent,
         border: Border.all(
@@ -172,29 +180,12 @@ class _CustomContactFormState extends State<CustomContactForm> {
             child: CustomButton(
               onPressed: () async {
                 await sendQuery();
-
               },
               buttonText: "   Submit   ",
               outlineColor: Color(0xffFF6006),
               textColor: Colors.white,
               hoverTextColor: Colors.black,
             ),
-            // child: ElevatedButton(
-            //   style: ElevatedButton.styleFrom(
-            //       backgroundColor: const Color(0xffFF6006)),
-            //   onPressed: () async{
-            //     await sendQuery();
-            //   },
-            //   child: const Padding(
-            //     padding:
-            //         EdgeInsets.only(top: 8, bottom: 8, left: 15, right: 15),
-            //     child: Text(
-            //       "Submit",
-            //       style: TextStyle(
-            //           color: Colors.white, fontSize: 16, fontFamily: "medium"),
-            //     ),
-            //   ),
-            // ),
           ),
         ],
       ),

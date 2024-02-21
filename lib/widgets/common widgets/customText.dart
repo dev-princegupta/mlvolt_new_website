@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mlvolt_new_website/models/currentPage.dart';
+import 'package:provider/provider.dart';
 
 class CustomText extends StatefulWidget {
   final String text;
@@ -25,6 +27,7 @@ class _CustomTextState extends State<CustomText> {
 
   @override
   Widget build(BuildContext context) {
+    CurrentPage provider = Provider.of<CurrentPage>(context);
     return MouseRegion(
       onEnter: (_) => _handleHover(true),
       onExit: (_) => _handleHover(false),
@@ -33,7 +36,7 @@ class _CustomTextState extends State<CustomText> {
         style: TextStyle(
           fontFamily: widget.fontFamily,
           fontSize: widget.fontSize,
-          color: _isHovered ? widget.howerFontColor : widget.normalFontColor,
+          color: _isHovered || provider.currentPage==widget.text ? widget.howerFontColor : widget.normalFontColor,
         ),
       ),
     );

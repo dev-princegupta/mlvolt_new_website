@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mlvolt_new_website/widgets/common%20widgets/responsiveLayout.dart';
 
 class CustomerCard extends StatelessWidget {
   final String imgAd;
@@ -17,7 +18,117 @@ class CustomerCard extends StatelessWidget {
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
 
-    return Row(
+    Widget mobile(){
+      return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width:  60,
+          height: 60,
+          child: Image.asset(imgAd),
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width:  250,
+              height: 80,
+              child: Text(
+                comment,
+                style:  const TextStyle(
+                  fontFamily: "regular",
+                  color: Colors.white,
+                  fontSize: 12,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 4,
+            ),
+            Text(
+              name,
+              style: const TextStyle(
+                fontFamily: "regular",
+                color: Color(0xffFF6006),
+                fontSize: 16,
+              ),
+            ),
+            Text(
+              position,
+              style: TextStyle(
+                fontFamily: deviceWidth>600? "thin": "regular",
+                color: const Color(0xff868686),
+                fontSize: 12,
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+    }
+
+    Widget tab(){
+      return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width:  100,
+          height: 100,
+          child: Image.asset(imgAd),
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width:  500,
+              height: 100,
+              child: Text(
+                comment,
+                style:  const TextStyle(
+                  fontFamily: "regular",
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              name,
+              style: const TextStyle(
+                fontFamily: "regular",
+                color: Color(0xffFF6006),
+                fontSize: 18,
+              ),
+            ),
+            Text(
+              position,
+              style: TextStyle(
+                fontFamily: deviceWidth>600? "thin": "regular",
+                color: const Color(0xff868686),
+                fontSize: 14,
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+    }
+
+    Widget desktop(){
+
+      return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -68,5 +179,12 @@ class CustomerCard extends StatelessWidget {
         ),
       ],
     );
+
+    }
+
+    return  ResponsiveLayout(
+      mobile: mobile(), 
+      tablet: tab(), 
+      desktop: desktop());
   }
 }

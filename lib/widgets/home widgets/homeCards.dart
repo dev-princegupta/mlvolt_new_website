@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mlvolt_new_website/widgets/common%20widgets/responsiveLayout.dart';
 
 class HomeCard extends StatelessWidget {
   final String imgAd;
@@ -13,10 +14,94 @@ class HomeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
-    return deviceWidth > 600
-        ? SizedBox(
+   
+    Widget mobile(){
+      return SizedBox(
+            // width: 200,
+            // height: 300,
+       
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 140,
+                    height: 140,
+                    child: Image.asset(imgAd),
+                  ),
+
+                 Padding(
+                  padding: const EdgeInsets.only(left: 20, top: 10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        productName,
+                        style: const TextStyle(
+                            fontFamily: "regular",
+                            fontSize: 14,
+                            color: Color(0xffFF6006)),
+                      ),
+                      Text(
+                        clientName,
+                        style: const TextStyle(
+                            fontFamily: "regular",
+                            fontSize: 12,
+                            color: Color(0xffFFFFFF)),
+                      )
+                    ],
+                  ),
+                ),
+                ]),
+          );
+    }
+
+    Widget tab(){
+       return SizedBox(
             width: 400,
             height: 400,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: 200,
+                  height: 200,
+                  child: Image.asset(imgAd),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        productName,
+                        style: const TextStyle(
+                            fontFamily: "regular",
+                            fontSize: 18,
+                            color: Color(0xffFF6006)),
+                      ),
+                      Text(
+                        clientName,
+                        style: const TextStyle(
+                            fontFamily: "regular",
+                            fontSize: 14,
+                            color: Color(0xffFFFFFF)),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+    }
+
+    Widget desktop (){
+      return SizedBox(
+            width: 500,
+            height: 500,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,7 +112,7 @@ class HomeCard extends StatelessWidget {
                   child: Image.asset(imgAd),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 35),
+                  padding: const EdgeInsets.only(left: 10),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,14 +121,14 @@ class HomeCard extends StatelessWidget {
                         productName,
                         style: const TextStyle(
                             fontFamily: "regular",
-                            fontSize: 28,
+                            fontSize: 22,
                             color: Color(0xffFF6006)),
                       ),
                       Text(
                         clientName,
                         style: const TextStyle(
                             fontFamily: "regular",
-                            fontSize: 22,
+                            fontSize: 14,
                             color: Color(0xffFFFFFF)),
                       )
                     ],
@@ -51,45 +136,12 @@ class HomeCard extends StatelessWidget {
                 ),
               ],
             ),
-          )
-        : SizedBox(
-            width: deviceWidth,
-            height: deviceWidth +200,
-       
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: deviceWidth,
-                    height: deviceWidth,
-                    child: Image.asset(imgAd),
-                  ),
-
-                 Padding(
-                  padding: const EdgeInsets.only(left: 100, top: 20),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        productName,
-                        style: const TextStyle(
-                            fontFamily: "regular",
-                            fontSize: 20,
-                            color: Color(0xffFF6006)),
-                      ),
-                      Text(
-                        clientName,
-                        style: const TextStyle(
-                            fontFamily: "regular",
-                            fontSize: 18,
-                            color: Color(0xffFFFFFF)),
-                      )
-                    ],
-                  ),
-                ),
-                ]),
           );
+    }
+    return ResponsiveLayout(
+      mobile: mobile(), 
+      tablet: tab(), 
+      desktop: desktop());
+   
   }
 }

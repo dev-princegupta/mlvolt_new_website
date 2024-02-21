@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/general widgets/customAppbar.dart';
-import '../widgets/general widgets/drawerItems.dart';
-
 class ThankYouPage extends StatelessWidget {
   const ThankYouPage({super.key});
 
@@ -11,13 +8,7 @@ class ThankYouPage extends StatelessWidget {
     double deviceWidth = MediaQuery.of(context).size.width;
     double deviceHeight = MediaQuery.of(context).size.height;
 
-    return Scaffold(
-      backgroundColor: const Color(0xff151515),
-      appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(70),
-          child: CustomAppBar()),
-      drawer: deviceWidth < 600 ? const CustomDrawer() : null,
-      body: SizedBox(
+    return SizedBox(
         width: deviceWidth,
         height: deviceHeight,
         child: Column(
@@ -50,7 +41,6 @@ class ThankYouPage extends StatelessWidget {
             )
           ],
         ),
-      ),
-    );
+      );
   }
 }
