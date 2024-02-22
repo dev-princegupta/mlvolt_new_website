@@ -29,6 +29,7 @@ class AboutPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: const Color(0xff151515),
+          
           appBar: const PreferredSize(
             preferredSize: Size.fromHeight(70),
             child: CustomAppBar(),

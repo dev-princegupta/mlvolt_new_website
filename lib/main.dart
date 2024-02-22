@@ -49,7 +49,6 @@ class MyApp extends StatelessWidget {
           appBarTheme: const AppBarTheme(
         iconTheme: IconThemeData(color: Colors.white),
       )),
-      debugShowCheckedModeBanner: false,
-      home: const HomePage());
+      debugShowCheckedModeBanner: false,);
   }
 }
