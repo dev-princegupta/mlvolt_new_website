@@ -3,9 +3,7 @@ import 'package:mlvolt_new_website/widgets/common%20widgets/customText.dart';
 import 'package:mlvolt_new_website/widgets/common%20widgets/responsiveLayout.dart';
 
 class CustomAppBar extends StatelessWidget {
-   const CustomAppBar({super.key});
-
-
+  const CustomAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +11,9 @@ class CustomAppBar extends StatelessWidget {
 
     Widget desktopAppbar() {
       return AppBar(
+          automaticallyImplyLeading:
+              false, // Set this to false to remove the back button
+
           backgroundColor: const Color(0xFF000000),
           elevation: 10,
           title: Padding(
@@ -123,31 +124,31 @@ class CustomAppBar extends StatelessWidget {
       );
     }
 
-    Widget tabAppbar(){
+    Widget tabAppbar() {
       return AppBar(
         backgroundColor: const Color(0xFF000000),
         elevation: 10,
         title: Padding(
-            padding: const EdgeInsets.only(top: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/home');
-                  },
-                  child: const Text(
-                    "MLVOLT",
-                    style: TextStyle(
-                        fontFamily: "bold",
-                        fontSize: 28,
-                        color: Color(0xffFF6006)),
-                  ),
+          padding: const EdgeInsets.only(top: 15),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, '/home');
+                },
+                child: const Text(
+                  "MLVOLT",
+                  style: TextStyle(
+                      fontFamily: "bold",
+                      fontSize: 28,
+                      color: Color(0xffFF6006)),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
+        ),
       );
     }
 
