@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mlvolt_new_website/models/currentPage.dart';
-import 'package:mlvolt_new_website/pages/productsPage.dart';
 import 'package:mlvolt_new_website/widgets/common%20widgets/responsiveLayout.dart';
 import 'package:mlvolt_new_website/widgets/home%20widgets/carousal2.dart';
 import 'package:provider/provider.dart';
@@ -42,7 +41,7 @@ class OurWorkHome extends StatelessWidget {
             ),
             CustomButton(
               onPressed: () {
-               provider.updateCurrentPage('PROJECTS');
+               Navigator.pushNamed(context, '/projects');
               },
               buttonText: "View More",
               outlineColor: Color(0xffFF6006),
@@ -85,7 +84,7 @@ class OurWorkHome extends StatelessWidget {
             ),
             CustomButton(
               onPressed: () {
-               provider.updateCurrentPage('PROJECTS');
+               Navigator.pushNamed(context, '/projects');
               },
               buttonText: "View More",
               outlineColor: Color(0xffFF6006),
@@ -128,7 +127,7 @@ class OurWorkHome extends StatelessWidget {
             ),
             CustomButton(
               onPressed: () {
-               provider.updateCurrentPage('PROJECTS');
+               Navigator.pushNamed(context, '/projects');
               },
               buttonText: "View More",
               outlineColor: const Color(0xffFF6006),

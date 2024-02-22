@@ -49,8 +49,10 @@ class _CustomContactFormState extends State<CustomContactForm> {
         'contact': contactController.text,
         'query': queryController.text
       }).then((value) {
-        provider.updateCurrentPage("THANKYOU");
-      }).catchError((error) => provider.updateCurrentPage("HOME"));
+        Navigator.pushNamed(context, '/thankyou');
+      }).catchError((error) {
+        Navigator.pushNamed(context, '/home');
+      });
     }
 
     return Container(

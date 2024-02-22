@@ -86,31 +86,31 @@ class OurClients extends StatelessWidget {
                         ),
                       ),
                     ),
-                ClientCard(
+                const ClientCard(
                   color: Color(0xff2E2D2D),
                   clientName: "Amit Sinha",
                   serviceName: "CAD Design",
                   description: "Improving Healthcre delivery using better UX.",
                 ),
-                ClientCard(
+                const ClientCard(
                   color: Colors.black,
                   clientName: "Amit Sinha",
                   serviceName: "CAD Design",
                   description: "Improving Healthcre delivery using better UX.",
                 ),
-                ClientCard(
+                const ClientCard(
                   color: Colors.black,
                   clientName: "Amit Sinha",
                   serviceName: "CAD Design",
                   description: "Improving Healthcre delivery using better UX.",
                 ),
-                ClientCard(
+                const ClientCard(
                   color: Colors.black,
                   clientName: "Amit Sinha",
                   serviceName: "CAD Design",
                   description: "Improving Healthcre delivery using better UX.",
                 ),
-                ClientCard(
+                const ClientCard(
                   color: Colors.black,
                   clientName: "Amit Sinha",
                   serviceName: "CAD Design",
@@ -199,31 +199,31 @@ class OurClients extends StatelessWidget {
                         ),
                       ),
                     ),
-                ClientCard(
+                const ClientCard(
                   color: Color(0xff2E2D2D),
                   clientName: "Amit Sinha",
                   serviceName: "CAD Design",
                   description: "Improving Healthcre delivery using better UX.",
                 ),
-                ClientCard(
+                const ClientCard(
                   color: Colors.black,
                   clientName: "Amit Sinha",
                   serviceName: "CAD Design",
                   description: "Improving Healthcre delivery using better UX.",
                 ),
-                ClientCard(
+                const ClientCard(
                   color: Colors.black,
                   clientName: "Amit Sinha",
                   serviceName: "CAD Design",
                   description: "Improving Healthcre delivery using better UX.",
                 ),
-                ClientCard(
+                const ClientCard(
                   color: Colors.black,
                   clientName: "Amit Sinha",
                   serviceName: "CAD Design",
                   description: "Improving Healthcre delivery using better UX.",
                 ),
-                ClientCard(
+                const ClientCard(
                   color: Colors.black,
                   clientName: "Amit Sinha",
                   serviceName: "CAD Design",
@@ -313,35 +313,35 @@ class OurClients extends StatelessWidget {
                         ),
                       ),
                     ),
-                    ClientCard(
+                    const ClientCard(
                       color: Color(0xff2E2D2D),
                       clientName: "Amit Sinha",
                       serviceName: "CAD Design",
                       description:
                           "Improving Healthcre delivery using better UX.",
                     ),
-                    ClientCard(
+                    const ClientCard(
                       color: Colors.black,
                       clientName: "Amit Sinha",
                       serviceName: "CAD Design",
                       description:
                           "Improving Healthcre delivery using better UX.",
                     ),
-                    ClientCard(
+                    const ClientCard(
                       color: Colors.black,
                       clientName: "Amit Sinha",
                       serviceName: "CAD Design",
                       description:
                           "Improving Healthcre delivery using better UX.",
                     ),
-                    ClientCard(
+                    const ClientCard(
                       color: Color(0xff2E2D2D),
                       clientName: "Amit Sinha",
                       serviceName: "CAD Design",
                       description:
                           "Improving Healthcre delivery using better UX.",
                     ),
-                    ClientCard(
+                    const ClientCard(
                       color: Colors.black,
                       clientName: "Amit Sinha",
                       serviceName: "CAD Design",

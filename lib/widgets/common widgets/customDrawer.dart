@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mlvolt_new_website/models/currentPage.dart';
-import 'package:provider/provider.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -19,12 +17,12 @@ class CustomDrawer extends StatelessWidget {
           SizedBox(
             height: deviceWidth > 600 && deviceWidth < 1200 ? 200 : 100,
           ),
-          const DrawerItem(displayText: "Home", navigatorText: "HOME"),
-          const DrawerItem(displayText: "About", navigatorText: "ABOUT"),
-          const DrawerItem(displayText: "Projects", navigatorText: "PROJECTS"),
-          const DrawerItem(displayText: "Services", navigatorText: "SERVICES"),
-          const DrawerItem(displayText: "Blogs", navigatorText: "BLOGS"),
-          const DrawerItem(displayText: "Contact", navigatorText: "CONTACT"),
+          const DrawerItem(displayText: "Home", navigatorText: "/home"),
+          const DrawerItem(displayText: "About", navigatorText: "/about"),
+          const DrawerItem(displayText: "Projects", navigatorText: "/projects"),
+          const DrawerItem(displayText: "Services", navigatorText: "/services"),
+          const DrawerItem(displayText: "Blogs", navigatorText: "/blogs"),
+          const DrawerItem(displayText: "Contact", navigatorText: "/contact"),
         ],
       ),
     );
@@ -44,7 +42,7 @@ class DrawerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
-    CurrentPage provider = Provider.of<CurrentPage>(context);
+    
     return Padding(
       padding: EdgeInsets.only(
         left: deviceWidth > 600 && deviceWidth < 1200 ? 150 : 50,
@@ -52,7 +50,7 @@ class DrawerItem extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          provider.updateCurrentPage(navigatorText);
+          Navigator.pushNamed(context, navigatorText);
         },
         child: Text(
           displayText,

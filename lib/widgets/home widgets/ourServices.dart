@@ -114,10 +114,10 @@ class HomeServices extends StatelessWidget {
                       ),
                       CustomButton(
                         onPressed: () {
-                          provider.updateCurrentPage('SERVICES');
+                          Navigator.pushNamed(context, '/services');
                         },
                         buttonText: "View All Services",
-                        outlineColor: Color(0xffFF6006),
+                        outlineColor: const Color(0xffFF6006),
                         textColor: Colors.white,
                         hoverTextColor: Colors.black,
                       )
@@ -222,7 +222,7 @@ class HomeServices extends StatelessWidget {
                       ),
                       CustomButton(
                         onPressed: () {
-                          provider.updateCurrentPage('SERVICES');
+                       Navigator.pushNamed(context, '/services');
                         },
                         buttonText: "View All Services",
                         outlineColor: Color(0xffFF6006),
@@ -327,10 +327,10 @@ class HomeServices extends StatelessWidget {
                       ),
                       CustomButton(
                         onPressed: () {
-                          provider.updateCurrentPage('SERVICES');
+                          Navigator.pushNamed(context, '/services');
                         },
                         buttonText: "View All Services",
-                        outlineColor: Color(0xffFF6006),
+                        outlineColor: const Color(0xffFF6006),
                         textColor: Colors.white,
                         hoverTextColor: Colors.black,
                       )

@@ -1,11 +1,9 @@
-import 'dart:developer';
+
 
 import 'package:flutter/material.dart';
 import 'package:mlvolt_new_website/models/currentPage.dart';
-import 'package:mlvolt_new_website/pages/aboutPage.dart';
-import 'package:mlvolt_new_website/pages/contactPage.dart';
-import 'package:mlvolt_new_website/pages/productsPage.dart';
-import 'package:mlvolt_new_website/pages/servicesPage.dart';
+
+
 
 import 'package:mlvolt_new_website/widgets/common%20widgets/customText.dart';
 import 'package:provider/provider.dart';
@@ -99,7 +97,7 @@ class Footer extends StatelessWidget {
                   ),
                   CustomButton(
                     onPressed: () {
-                      provider.updateCurrentPage("CONTACT");
+                      Navigator.pushNamed(context, '/contact');
                     },
                     buttonText: "Contact Us",
                     outlineColor: Color(0xffFF6006),
@@ -168,7 +166,7 @@ class Footer extends StatelessWidget {
                       children: [
                         InkWell(
                           onTap: () {
-                            provider.updateCurrentPage("SERVIES");
+                            Navigator.pushNamed(context, '/services');
                           },
                           child:  CustomText(
                             text: "Services",
@@ -180,7 +178,7 @@ class Footer extends StatelessWidget {
                         ),
                         InkWell(
                           onTap: () {
-                            provider.updateCurrentPage("ABOUT");
+                            Navigator.pushNamed(context, '/about');
                           },
                           child:  CustomText(
                             text: "About",
@@ -204,7 +202,7 @@ class Footer extends StatelessWidget {
                       children: [
                         InkWell(
                           onTap: () {
-                            provider.updateCurrentPage("PROJECTS");
+                            Navigator.pushNamed(context, '/projects');
                           },
                           child:  CustomText(
                             text: "Projects",
@@ -303,7 +301,7 @@ class Footer extends StatelessWidget {
               ),
               CustomButton(
                 onPressed: () {
-                  provider.updateCurrentPage("CONTACT");
+                  Navigator.pushNamed(context, '/contact');
                 },
                 buttonText: "Contact Us",
                 outlineColor: Color(0xffFF6006),
@@ -346,8 +344,7 @@ class Footer extends StatelessWidget {
                   children: [
                     InkWell(
                       onTap: () {
-                        print("hello");
-                        // await redirect();
+                        redirectLinkedin();
                       },
                       child: SizedBox(
                         width: 18,
@@ -355,15 +352,25 @@ class Footer extends StatelessWidget {
                         child: Image.asset('assets/images/li.png'),
                       ),
                     ),
-                    SizedBox(
-                      width: 18,
-                      height: 18,
-                      child: Image.asset('assets/images/ig.png'),
+                    InkWell(
+                      onTap: () {
+                        redirectInstagram();
+                      },
+                      child: SizedBox(
+                        width: 18,
+                        height: 18,
+                        child: Image.asset('assets/images/ig.png'),
+                      ),
                     ),
-                    SizedBox(
-                      width: 18,
-                      height: 18,
-                      child: Image.asset('assets/images/fb.png'),
+                    InkWell(
+                      onTap: () {
+                        redirectFacebook();
+                      },
+                      child: SizedBox(
+                        width: 18,
+                        height: 18,
+                        child: Image.asset('assets/images/fb.png'),
+                      ),
                     ),
                   ],
                 ),

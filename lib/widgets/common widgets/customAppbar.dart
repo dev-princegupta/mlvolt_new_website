@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mlvolt_new_website/models/currentPage.dart';
 import 'package:mlvolt_new_website/widgets/common%20widgets/customText.dart';
 import 'package:mlvolt_new_website/widgets/common%20widgets/responsiveLayout.dart';
-import 'package:provider/provider.dart';
 
 class CustomAppBar extends StatelessWidget {
    const CustomAppBar({super.key});
@@ -12,7 +10,6 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 //    double deviceWidth = MediaQuery.of(context).size.width;
-    CurrentPage provider = Provider.of<CurrentPage>(context);
 
     Widget desktopAppbar() {
       return AppBar(
@@ -26,7 +23,7 @@ class CustomAppBar extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {
-                    provider.updateCurrentPage('HOME');
+                    Navigator.pushNamed(context, '/home');
                   },
                   child: const Padding(
                     padding: EdgeInsets.only(left: 48),
@@ -53,7 +50,7 @@ class CustomAppBar extends StatelessWidget {
                   children: [
                     InkWell(
                         onTap: () {
-                          provider.updateCurrentPage('ABOUT');
+                          Navigator.pushNamed(context, '/about');
                         },
                         child: const CustomText(
                             text: "ABOUT",
@@ -63,7 +60,7 @@ class CustomAppBar extends StatelessWidget {
                             fontSize: 20)),
                     InkWell(
                         onTap: () {
-                          provider.updateCurrentPage('PROJECTS');
+                          Navigator.pushNamed(context, '/projects');
                         },
                         child: const CustomText(
                             text: "PROJECTS",
@@ -73,7 +70,7 @@ class CustomAppBar extends StatelessWidget {
                             fontSize: 20)),
                     InkWell(
                         onTap: () {
-                          provider.updateCurrentPage('SERVICES');
+                          Navigator.pushNamed(context, '/services');
                         },
                         child: const CustomText(
                             text: "SERVICES",
@@ -83,7 +80,7 @@ class CustomAppBar extends StatelessWidget {
                             fontSize: 20)),
                     InkWell(
                         onTap: () {
-                          provider.updateCurrentPage('BLOGS');
+                          Navigator.pushNamed(context, '/blogs');
                         },
                         child: const CustomText(
                             text: "BLOGS",
@@ -93,7 +90,7 @@ class CustomAppBar extends StatelessWidget {
                             fontSize: 20)),
                     InkWell(
                         onTap: () {
-                          provider.updateCurrentPage('CONTACT');
+                          Navigator.pushNamed(context, '/contact');
                         },
                         child: const CustomText(
                             text: "CONTACT",
@@ -138,7 +135,7 @@ class CustomAppBar extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {
-                    provider.updateCurrentPage('HOME');
+                    Navigator.pushNamed(context, '/home');
                   },
                   child: const Text(
                     "MLVOLT",
